@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
 
 class Number extends Component {
+  handleRemove = (event) => {
+    this.props.remove(this.props.value);
+  }
   render() {
     return (
       <li>
         {this.props.value}
-        <button onClick={this.props.remove}>X</button>
+        <button onClick={this.handleRemove}>X</button>
       </li>
     );
   }

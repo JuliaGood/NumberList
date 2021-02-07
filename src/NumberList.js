@@ -5,9 +5,11 @@ class NumberList extends Component {
   constructor(props) {
     super(props);
     this.state = { nums: [1, 2, 3, 4, 5] };
+    this.removeNumber = this.removeNumber.bind(this);
   };
 
-  removeNumber = (number) => {
+  removeNumber(number) {
+    console.log('number was removed!!!')
     this.setState({ nums: this.state.nums.filter(num => num !== number)});
   }
 
@@ -15,7 +17,7 @@ class NumberList extends Component {
     let nums = this.state.nums.map(num => (
       <Number 
         value={num} 
-        remove={()=> this.removeNumber(num)}
+        remove={this.removeNumber}
       />
     ));
     return(
