@@ -4,7 +4,7 @@ import Number from './Number';
 class NumberList extends Component {
   constructor(props) {
     super(props);
-    this.state = { nums: [1, 2, 3, 4, 5] };
+    this.state = { nums: [1, 2, 2, 3, 3, 3, 4, 5] };
     this.removeNumber = this.removeNumber.bind(this);
   };
 
@@ -14,8 +14,9 @@ class NumberList extends Component {
   }
 
   render() {
-    let nums = this.state.nums.map(num => (
+    let nums = this.state.nums.map((num, index) => (
       <Number 
+        key={index}
         value={num} 
         remove={this.removeNumber}
       />
